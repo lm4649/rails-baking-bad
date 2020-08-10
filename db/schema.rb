@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_083602) do
+ActiveRecord::Schema.define(version: 2020_08_10_085220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bakeries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "address"
+    t.string "phone_number"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bakeries_on_user_id"
+  end
+
+  create_table "breads", force: :cascade do |t|
+    t.bigint "bakery_id", null: false
+    t.integer "price"
+    t.integer "min_quantity"
+    t.integer "max_quantity"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bakery_id"], name: "index_breads_on_bakery_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "bread_id", null: false
+    t.datetime "pick_up"
+    t.integer "quantity"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bread_id"], name: "index_orders_on_bread_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -28,4 +62,8 @@ ActiveRecord::Schema.define(version: 2020_08_10_083602) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bakeries", "users"
+  add_foreign_key "breads", "bakeries"
+  add_foreign_key "orders", "breads"
+  add_foreign_key "orders", "users"
 end
