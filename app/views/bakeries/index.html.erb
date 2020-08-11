@@ -1,2 +1,4 @@
 <h1>Bakeries#index</h1>
 <p>Find me in app/views/bakeries/index.html.erb</p>
+
+<%= link_to "#{@bakeries.first.name}", bakery_path(@bakeries.first) %>

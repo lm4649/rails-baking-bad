@@ -1,2 +1,41 @@
-<h1>Bakeries#show</h1>
-<p>Find me in app/views/bakeries/show.html.erb</p>
+<!-- Bakery's name -->
+<h1 class="text-center m-4"><%=@bakery.name %></h1>
+
+<!-- Bakery's card -->
+<div class="container">
+  <div class="card flex-md-row mb-4 box-shadow h-md-250">
+    <%= image_tag "https://source.unsplash.com/featured/?{ bakery, bread }", alt: "bakery", class:"card-img-right flex-auto d-none d-md-block", style: "width: 400px; height: 250px; "  %>
+    <div class="card-body d-flex flex-column align-items-start">
+       <div class="mb-1 text-muted"><%=DateTime.now %></div>
+        <h3 class="mb-0">Bakery Story</h3>
+          <p class="card-text mb-auto"><%= @bakery.description %></p>
+        </div>
+    </div>
+<!-- in a grid a column for bakery's photos -->
+    <div style="display: grid; grid-template-columns: 2fr 3fr; grid-gap: 16px">
+      <div style="display: flex; justify-content: left;" >
+        <%= image_tag "https://source.unsplash.com/featured/?{ bakery, bread }", alt: "bakery", class:"card-img-right flex-auto d-none d-md-block", style: "width: 200px; height: 200px; margin: 4px; "  %>
+        <%= image_tag "https://source.unsplash.com/featured/?{ bakery, bread }", alt: "bakery", class:"card-img-right flex-auto d-none d-md-block", style: "width: 200px; height: 200px; margin: 4px;"  %>
+      </div>
+      <!-- and a column for breads -->
+      <div style="display: flex; justify-content: left;">
+        <ul>
+          <% @bakery.breads.each do |bread| %>
+           <li style= "list-style: none;">
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+              <%= image_tag "https://source.unsplash.com/featured/?{ bakery, #{bread.name} }", alt: "bakery", class:"card-img-right flex-auto d-none d-md-block", style: "width: 300px; height: 250px; "  %>
+              <div class="card-body d-flex flex-column align-items-start">
+                  <h4 class="mb-0"><%= bread.name.capitalize %></h4>
+                    <p class="card-text mt-2 mb-auto">Bread's description here and should be that long</p>
+                    <p> <strong>price</strong>: JPY <%= bread.price %></p>
+                    <p> <strong>min/max:</strong> <%= "#{bread.min_quantity}/#{bread.max_quantity}"%> units</p>
+                    <%= link_to "Order here", bakery_path(@bakery), class:'btn btn-outline-success'%>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+</div>
+
