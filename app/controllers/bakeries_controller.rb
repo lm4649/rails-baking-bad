@@ -1,8 +1,7 @@
 class BakeriesController < ApplicationController
 
   def index
-    @bakeries = Bakery.all
-    Bakery.order( name: :asc)
+    @bakeries = Bakery.order(:name)
   end
 
   def show
@@ -20,7 +19,7 @@ class BakeriesController < ApplicationController
       redirect_to bakery_path(@bakery)
     else
       render :new
-    #render the propor page
+
     end
   end
 
