@@ -15,6 +15,7 @@ class BakeriesController < ApplicationController
   def create
     @bakery = Bakery.new(params_bakery)
     @bakery.user = current_user
+    raise
     if @bakery.save
       redirect_to bakery_path(@bakery)
     else
@@ -23,10 +24,10 @@ class BakeriesController < ApplicationController
     end
   end
 
-private
+  private
 
   def params_bakery
-    params.require(bakery).permit(:name, :address, :phone_number, :description)
+    params.require(:bakery).permit(:name, :address, :phone_number, :description)
   end
 
 end
