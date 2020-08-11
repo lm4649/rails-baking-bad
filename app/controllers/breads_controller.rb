@@ -1,6 +1,7 @@
 class BreadsController < ApplicationController
 
   def new
+    authorize @bread
     @bread = Bread.new
     @bakery = Bakery.find(params[:bakery_id])
   end
@@ -9,6 +10,7 @@ class BreadsController < ApplicationController
     @bread = Bread.new(bread_params)
     @bakery = Bakery.find(params[:bakery_id])
     @bread.bakery = @bakery
+    authorize @bread
     if @bread.save
       redirect_to bakery_path(@bakery)
     else
@@ -16,7 +18,7 @@ class BreadsController < ApplicationController
     end
   end
 
-private
+  private
 
   def bread_params
     params.require(:bread).permit(:price, :min_quantity, :max_quantity, :name, :bakery_id)
