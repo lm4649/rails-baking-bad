@@ -12,7 +12,8 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  font-style: 'EB Garamond';
+  font-family: 'EB Garamond';
+
 }
 
 .banner p {
@@ -38,9 +39,34 @@
 h2 {
   margin-top: 46px;
   text-align: center;
-  font-style: 'EB Garamond';
+  font-family: 'EB Garamond';
 }
 p {
   margin-top: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 42px;
+  font-family: 'EB Garamond'
+}
+
+.card-container {
+  margin-left: 24px;
+  margin-right: 24px;
+  flex-wrap: wrap;
+}
+
+.main-bread img {
+  width:600px;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
+.user-description {
+  padding: 0;
+  margin: 0;
+}
+
+.bread-gallery img {
+  width: 200px;
+  height: 200px;
+  padding-right: 12px;
+
 }
