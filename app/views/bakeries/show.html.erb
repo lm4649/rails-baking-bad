@@ -15,7 +15,6 @@
       <% if current_user == @bakery.user %>
         <%= link_to "Add your Bread", new_bread_path, class:'btn btn-outline-success'%>
       <% end %>
-
     </div>
   </div>
   <!-- in a grid a column for bakery's photos -->
@@ -34,8 +33,8 @@
         <% @bakery.breads.each do |bread| %>
           <li style= "list-style: none;">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
-              <% if @bread.photo.attached? %>
-                <%= cl_image_tag @bread.photo.key, height: 300, width: 400, crop: :fill %>
+              <% if bread.photos.attached? %>
+                <%= cl_image_tag bread.photos[0].key, height: 300, width: 400, crop: :fill %>
               <% else %>
                 <%= image_tag "https://source.unsplash.com/featured/?{ bakery, #{bread.name} }", alt: "bakery", class:"card-img-right flex-auto d-none d-md-block", style: "width: 300px; height: 250px; "  %>
               <% end %>
@@ -49,7 +48,6 @@
                 <% unless current_user == @bakery.user %>
                   <%= link_to "Order here", bakery_path(@bakery), class:'btn btn-outline-success'%>
                 <% end %>
-
               </div>
             </div>
           </li>
