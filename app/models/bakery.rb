@@ -5,4 +5,5 @@ class Bakery < ApplicationRecord
   validates :name, presence: true, length: { minimum: 2 }
   validates :phone_number, presence: true, format: { with: /[^A-Za-z]{11,}/ }
   validates :description, presence: true, length: { minimum: 25 }
+  has_one_attached :photo
 end
