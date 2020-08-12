@@ -12,6 +12,7 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
+  font-style: 'EB Garamond';
 }
 
 .banner p {
@@ -24,11 +25,22 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background:   #ff0080;
   transition: background 0.3s ease;
+  margin-top: 16px;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  background: #ff00ff;
   color: white;
+}
+
+h2 {
+  margin-top: 46px;
+  text-align: center;
+  font-style: 'EB Garamond';
+}
+p {
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
