@@ -1,0 +1,10 @@
+<h1 class="text-center m-3">Create your bakery</h1>
+<div class="container border rounded px-4 pt-2 pb-5 shadow">
+  <%= simple_form_for @bakery do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address%>
+    <%= f.input :phone_number %>
+    <%= f.input :description %>
+    <%= f.submit class:' btn btn-lg btn-block btn-outline-success' %>
+  <% end %>
+</div>
