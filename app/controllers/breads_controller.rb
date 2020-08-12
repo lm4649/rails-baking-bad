@@ -1,13 +1,12 @@
 class BreadsController < ApplicationController
-
   def new
     @bread = Bread.new
-    @bakery = Bakery.find(params[:bakery_id])
+    @bakery = current_user.bakery
   end
 
   def create
     @bread = Bread.new(bread_params)
-    @bakery = Bakery.find(params[:bakery_id])
+    @bakery = current_user.bakery
     @bread.bakery = @bakery
     if @bread.save
       redirect_to bakery_path(@bakery)
@@ -16,9 +15,9 @@ class BreadsController < ApplicationController
     end
   end
 
-private
+  private
 
   def bread_params
-    params.require(:bread).permit(:price, :min_quantity, :max_quantity, :name, :bakery_id)
+    params.require(:bread).permit(:price, :min_quantity, :max_quantity, :name)
   end
 end
