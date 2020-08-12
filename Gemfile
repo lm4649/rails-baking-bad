@@ -24,6 +24,9 @@ gem 'bcrypt', '~> 3.1.7'
 # to seed the DB
 gem 'faker'
 
+# added gems - authentication Pundit
+gem 'pundit'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -12,6 +12,10 @@
       <div class="mb-1 text-muted"><%=DateTime.now %></div>
       <h3 class="mb-0">Bakery Story</h3>
       <p class="card-text mb-auto"><%= @bakery.description %></p>
+      <% if current_user == @bakery.user %>
+        <%= link_to "Add your Bread", new_bread_path, class:'btn btn-outline-success'%>
+      <% end %>
+
     </div>
   </div>
   <!-- in a grid a column for bakery's photos -->
@@ -40,7 +44,10 @@
                 <p class="card-text mt-2 mb-auto">Bread's description here and should be that long</p>
                 <p> <strong>price</strong>: JPY <%= bread.price %></p>
                 <p> <strong>min/max:</strong> <%= "#{bread.min_quantity}/#{bread.max_quantity}"%> units</p>
-                <%= link_to "Order here", bakery_path(@bakery), class:'btn btn-outline-success'%>
+                <% unless current_user == @bakery.user %>
+                  <%= link_to "Order here", bakery_path(@bakery), class:'btn btn-outline-success'%>
+                <% end %>
+
               </div>
             </div>
           </li>
