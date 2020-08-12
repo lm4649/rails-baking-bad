@@ -18,6 +18,6 @@ class BreadsController < ApplicationController
   private
 
   def bread_params
-    params.require(:bread).permit(:price, :min_quantity, :max_quantity, :name)
+    params.require(:bread).permit(:price, :min_quantity, :max_quantity, :name, :photos)
   end
 end

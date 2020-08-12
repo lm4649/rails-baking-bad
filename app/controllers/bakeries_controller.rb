@@ -26,7 +26,6 @@ class BakeriesController < ApplicationController
   private
 
   def params_bakery
-    params.require(:bakery).permit(:name, :address, :phone_number, :description)
+    params.require(:bakery).permit(:name, :address, :phone_number, :description, :photo)
   end
-
 end
