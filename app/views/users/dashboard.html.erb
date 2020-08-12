@@ -23,7 +23,8 @@
           <%= image_tag "https://source.unsplash.com/featured/?{ bakery, bread }", alt: "bread", width:200, height:200 %>
           <div class="div text-left">
             <p class="my-2"><%= "#{order.quantity} #{order.bread.name.capitalize}" %></p>
-            <p class="my-2">Total: JPY<%= order.quantity * order.bread.price %></p>
+            <p class="my-2">Unit price: JPY <%= order.bread.price %></p>
+            <p class="my-2">Total: JPY <%= order.quantity * order.bread.price %></p>
           </div>
         </div>
         <!-- command status -->
@@ -40,9 +41,9 @@
             <p>Delivered</p>
           <% end %>
         </div>
-        <div class="">
-          <%= link_to "accept", "#", class: 'btn btn-success'  %>
-          <%= link_to "deline", "#", class: 'btn btn-danger'  %>
+        <div class="d-flex justify-content-around">
+          <%= link_to "accept", order_path(order, status: 2), method: 'PATCH', class: 'btn btn-success'  %>
+          <%= link_to "deline", order_path(order, status: 0), method: 'PATCH', class: 'btn btn-danger'  %>
         </div>
       </div>
     </div>
@@ -74,7 +75,7 @@
           <p class="my-2">☎️: <%= order.bread.bakery.phone_number %></p>
           <p class="my-2">🏢️: <%= order.bread.bakery.address %></p>
           <p class="my-2"><%= "#{order.quantity} #{order.bread.name.capitalize}" %></p>
-          <p class="my-2">Total: JPY<%= order.quantity * order.bread.price %></p>
+          <p class="my-2">Total: JPY <%= order.quantity * order.bread.price %></p>
         </div>
       </div>
       <!-- command status -->
