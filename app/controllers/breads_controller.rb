@@ -1,8 +1,8 @@
 class BreadsController < ApplicationController
   def new
-    authorize @bread
     @bread = Bread.new
     @bakery = current_user.bakery
+    authorize @bread
   end
 
   def create
