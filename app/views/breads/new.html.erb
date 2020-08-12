@@ -1,0 +1,12 @@
+<h1 class= "text-center mt-5"><%= @bakery.name %></h1>
+<div class="container border rounded shadow p-5">
+  <h3 class= "text-center text-muted m-2">Add a new bread</h3>
+  <%= simple_form_for @bread do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :min_quantity, collection: 1..98  %>
+    <%= f.input :max_quantity, collection: 1..99  %>
+    <%= f.submit class: "btn btn-outline-success btn-block btn-lg" %>
+  <% end %>
+</div>
