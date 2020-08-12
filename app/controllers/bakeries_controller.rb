@@ -1,19 +1,17 @@
 class BakeriesController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    authorize @bakeries
     @bakeries = policy_scope(Bakery).order(:name)
   end
 
   def show
-    authorize @bakery
     @bakery = Bakery.find(params[:id])
+    authorize @bakery
   end
 
   def new
     @bakery = Bakery.new
     authorize @bakery
-
   end
 
   def create
@@ -33,5 +31,4 @@ class BakeriesController < ApplicationController
   def params_bakery
     params.require(:bakery).permit(:name, :address, :phone_number, :description)
   end
-
 end

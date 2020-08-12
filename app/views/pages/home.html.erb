@@ -3,7 +3,15 @@
     <%= image_tag "white_logo_transparent_background.png", alt: "alttext", width: 300%>
     <div class="text-center">
       <h1>"Baking. Passion. Creating. Connection"</h1>
-      <a class="btn btn-flat" href="">Become a Baker</a>
+      <% if user_signed_in? %>
+        <% if current_user.bakery.nil? %>
+          <%= link_to "Become a Baker", new_bakery, class: "btn btn-flat" %>
+        <% else %>
+          <%= link_to "Go to your Bakery", bakery_path(current_user.bakery), class: "btn btn-flat" %>
+        <% end %>
+      <% else %>
+        <%= link_to "Check bakeries", bakeries_path, class: "btn btn-flat"  %>
+      <%end %>
     </div>
   </div>
 </div>
@@ -11,7 +19,6 @@
   <h2>What is Baking Bad?</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim cumque reprehenderit libero suscipit magnam totam dicta quae laboriosam! Ipsam quod sint sequi ullam eum at ad, minus, exercitationem accusamus incidunt.</p>
 </div>
-
 <div class="card-container d-flex">
   <div class="user-description">
     <h2>Sam's HomeBakery</h2>
@@ -28,4 +35,3 @@
     </div>
   </div>
 </div>
-
