@@ -5,7 +5,7 @@
     <%= f.input :name %>
     <%= f.input :description, as: :text %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-    <%= f.input :price, input_html: { min: '0', step: 'any' } %>
+    <%= f.input :price, label: "Price ¥", input_html: { min: '0', step: 'any' } %>
     <%= f.input :min_quantity, collection: 1..98  %>
     <%= f.input :max_quantity, collection: 1..99  %>
     <%= f.submit class: "btn btn-outline-success btn-block btn-lg" %>
