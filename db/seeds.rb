@@ -24,7 +24,8 @@ user =  User.create!(  name: Faker::Name.unique.name,
                 )
 bakery = Bakery.new(
   name: Faker::Restaurant.unique.name,
-  description: Faker::Restaurant.description,
+  # description: Faker::Restaurant.description,
+  description: Faker::Lorem.paragraph(sentence_count: 2),
   address: Faker::Address.street_address,
   phone_number: Faker::PhoneNumber.cell_phone
 )
@@ -36,7 +37,7 @@ bakery.save!
     bread = Bread.new( name: breads.sample,
                price: prices.sample,
                min_quantity: (1..9).to_a.sample,
-               max_quantity: (10..100).to_a.sample,
+               max_quantity: (10..99).to_a.sample,
               )
     bread.bakery = bakery
     bread.save!

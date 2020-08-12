@@ -1,2 +1,11 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+li {
+  list-style : none;
+}
+
+a:hover {
+  text-decoration: none
+}
