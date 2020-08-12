@@ -1,5 +1,6 @@
 class BreadsController < ApplicationController
   def new
+    authorize @bread
     @bread = Bread.new
     @bakery = current_user.bakery
   end
@@ -8,6 +9,7 @@ class BreadsController < ApplicationController
     @bread = Bread.new(bread_params)
     @bakery = current_user.bakery
     @bread.bakery = @bakery
+    authorize @bread
     if @bread.save
       redirect_to bakery_path(@bakery)
     else

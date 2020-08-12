@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
     @order.bread = @bread
     @order.user = current_user
     @bakery = Baker.find(bread.bakery)
+    authorize @order
     if @order.save
       redirect_to bakeries_path
     else
@@ -16,6 +17,7 @@ class OrdersController < ApplicationController
 
   def update
     # authorization : only for the baker
+    authorize @order
     if @order.update(order_params)
       redirect_to dashboard_path
     end
