@@ -15,7 +15,6 @@ class BakeriesController < ApplicationController
   def create
     @bakery = Bakery.new(params_bakery)
     @bakery.user = current_user
-    raise
     if @bakery.save
       redirect_to bakery_path(@bakery)
     else
