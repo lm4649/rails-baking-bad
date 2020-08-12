@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     @bakery = Bakery.find(@bread.bakery_id)
     @order.status = 1  # 0 = declined, 1 = pending, 2 = accepted, 3 = delivered
     authorize @order
+    raise
     if @order.save
       redirect_to bakeries_path
     else

@@ -1,4 +1,3 @@
-
 const InitOrderPrice = () => {
   const quantity = document.getElementById('order_quantity');
     quantity.addEventListener('change', () => {
