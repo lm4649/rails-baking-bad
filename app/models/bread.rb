@@ -5,4 +5,5 @@ class Bread < ApplicationRecord
   validates :min_quantity, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 99 }
   validates :max_quantity, presence: true, numericality: { only_integer: true, greater_than: :min_quantity, less_than: 100 }
   validates :name, presence: true, length: { minimum: 2 }
+  has_many_attached :photos
 end
