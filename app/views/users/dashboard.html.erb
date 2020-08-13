@@ -1,17 +1,11 @@
 <div class="container">
-  <h1 class = "text-center m-3">Dashboards</h1>
-  <!-- dropdown -->
-  <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Choose
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <!--       <button class="dropdown-item" type="button">Your Bakery</button>
-      <button class="dropdown-item" type="button">Your Orders</button> -->
-      <%= link_to "Your Orders", dashboard_path(choice: 0), class: "dropdown-item"  %>
-      <%= link_to "Your Bakery", dashboard_path(choice: 1), class: "dropdown-item"  %>
-    </div>
-  </div>
+  <% if current_user.bakery.nil? %>
+    <h1 class = "text-center m-3">Dashboard</h1>
+  <% else %>
+    <h1 class = "text-center m-3">Dashboards</h1>
+    <!-- dropdown -->
+    <%= render 'shared/dashboard_selector' %>
+  <% end %>
   <!-- Baker Dashboard -->
   <% if @baker_orders.any? %>
     <%= render 'shared/dashboard_baker' %>
