@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     authorize @order
     @order.status = params[:status]
-
+    raise
     if @order.save
       redirect_to dashboard_path
     end

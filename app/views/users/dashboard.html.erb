@@ -41,10 +41,15 @@
             <p>Delivered</p>
           <% end %>
         </div>
-        <div class="d-flex justify-content-around">
-          <%= link_to "accept", order_path(order, status: 2), method: 'PATCH', class: 'btn btn-success'  %>
-          <%= link_to "deline", order_path(order, status: 0), method: 'PATCH', class: 'btn btn-danger'  %>
-        </div>
+        <!-- display the update button only if pick up date is in the future -->
+        <% if order.pick_up_in_future? %>
+          <div class="d-flex justify-content-around">
+            <%= link_to "accept", order_path(order, status: 2), method: 'PATCH', class: 'btn btn-success'  %>
+            <%= link_to "deline", order_path(order, status: 0), method: 'PATCH', class: 'btn btn-danger'  %>
+          </div>
+        <% else %>
+          <p>This order cannot be update anymore</p>
+        <% end %>
       </div>
     </div>
   <% end %>
