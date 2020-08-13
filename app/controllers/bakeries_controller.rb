@@ -1,8 +1,8 @@
 class BakeriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @bakeries = policy_scope(Bakery).order(:name)
-    @bakeries = Bakery.geocoded # returns bakery with coordinates
+    @bakeries = policy_scope(Bakery.geocoded).order(:name)
+    # @bakeries = Bakery.geocoded # returns bakery with coordinates
 
     @markers = @bakeries.map do |bakery|
       {
