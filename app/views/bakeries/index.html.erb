@@ -1,17 +1,16 @@
 <!-- filter bakery cards and map -->
 <div class="wrapper-bakeries">
   <ul>
-    <div class="btn-group m-3">
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter by
-      </button>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#">category 1</a>
-        <a class="dropdown-item" href="#">category 2</a>
-        <a class="dropdown-item" href="#">category 3</a>
-      </div>
-    </div>
-    <h1>Yoyogi-Koen</h1>
+    <%= form_tag bakeries_path, method: :get, class: "form-inline my-2 my-lg-0" do  %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control mr-sm-2",
+        placeholder: "Find a bakery"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= link_to "Bakeries", bakeries_path,class: "btn btn-success ml-1"  %>
+    <% end %>
+    <h1><%= @results %></h1>
     <% @bakeries.each do |bakery| %>
       <li>
         <div class="card-bakery my-2 mr-3">

@@ -1,8 +1,22 @@
 class BakeriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @bakeries = policy_scope(Bakery.geocoded).order(:name)
-    # @bakeries = Bakery.geocoded # returns bakery with coordinates
+    if params[:query].present?
+      # sql_query = " \
+      #   bakeries.name @@ :query \
+      #   OR bakeries.address @@ :query \
+      #   OR bakeries.description @@ :query \
+      #   OR breads.name @@ :query \
+      #   OR breads.description @@ :query \
+      # "
+      # @bakeries = policy_scope(Bakery.geocoded).joins(:breads).where(sql_query, query: "%#{params[:query]}%").uniq
+
+      @bakeries = policy_scope(Bakery.geocoded).global_search(params[:query])
+      @results = "#{@bakeries.count} #{@bakeries.count > 1 ? 'results' : 'result'}"
+    else
+      @bakeries = policy_scope(Bakery.geocoded).order(:name)
+      @results = "your neighborhood baker(s)"
+    end
 
     @markers = @bakeries.map do |bakery|
       {
