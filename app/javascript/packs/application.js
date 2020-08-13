@@ -29,10 +29,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initMovingLetters } from '../plugins/init_movingletters3';
 import { InitOrderPrice } from '../plugins/init_order_price';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initSelect2 } from '../plugins/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  initSelect2();
   InitOrderPrice();
   initMapbox();
   initMovingLetters();

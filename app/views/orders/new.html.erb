@@ -2,7 +2,7 @@
 <div class="container border rounded shadow p-5">
   <h3 class= "text-center text-muted m-2"> <%= @bread.name.capitalize%> <small><%= "(JPY#{@bread.price})" %></small></h3>
   <%= simple_form_for [@bread, @order] do |f| %>
-    <%= f.input :quantity, collection: @bread.min_quantity..@bread.max_quantity %>
+    <%= f.input :quantity, collection: @bread.min_quantity..@bread.max_quantity, input_html: { class: 'select2'} %>
     <%= f.input :pick_up, as: :date %>
     <%= f.submit :Order, class: "btn btn-outline-success btn-block btn-lg" %>
   <% end %>
