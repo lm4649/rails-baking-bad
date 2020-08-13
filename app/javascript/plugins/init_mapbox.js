@@ -1,14 +1,14 @@
 import mapboxgl from 'mapbox-gl';
 
-const mapElement = document.getElementById('map');
 
-const buildMap = () => {
-  mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  return new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
-  });
-};
+
+// const buildMap = () => {
+//   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+//   return new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/streets-v10'
+//   });
+// };
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
@@ -25,6 +25,7 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
+  const mapElement = document.getElementById('map');
  if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({

@@ -83,14 +83,14 @@ puts "create customer orders"
   # 1st user buy to last user
   Order.create!(  user_id: User.last.id,
                   bread_id: User.first.bakery.breads.sample.id,
-                  quantity: rand(10),
+                  quantity: rand(1..10),
                   pick_up: DateTime.new(2020,8,13,rand(13..17),0,0)+ rand(1..15),
                   status: [0,1,2,3].sample
                   )
   # last user buy to first user
   Order.create!(  user_id: User.first.id,
                   bread_id: User.last.bakery.breads.sample.id,
-                  quantity: rand(10),
+                  quantity: rand(1..10),
                   pick_up: DateTime.new(2020,8,13,rand(13..17),0,0)+ rand(1..15),
                   status: [0,1,2,3].sample
                   )
