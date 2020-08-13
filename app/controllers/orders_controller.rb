@@ -23,9 +23,11 @@ class OrdersController < ApplicationController
 
   def update
     # authorization : only for the baker
+    @order = Order.find(params[:id])
     authorize @order
-    if @order.update(order_params)
-      redirect_to dashboard_path
+    @order.status = params[:status]
+    if @order.save
+      redirect_to dashboard_path(choice: 1)
     end
   end
 

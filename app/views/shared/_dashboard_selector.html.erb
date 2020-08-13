@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Choose
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <!--       <button class="dropdown-item" type="button">Your Bakery</button>
+      <button class="dropdown-item" type="button">Your Orders</button> -->
+    <%= link_to "Your Orders", dashboard_path(choice: 0), class: "dropdown-item"  %>
+    <%= link_to "Your Bakery", dashboard_path(choice: 1), class: "dropdown-item"  %>
+  </div>
+</div>
