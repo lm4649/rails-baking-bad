@@ -40,11 +40,13 @@
               <% end %>
               <div class="card-body d-flex flex-column align-items-start">
                 <h4 class="mb-0"><%= bread.name.capitalize %></h4>
-                <p class="card-text mt-2 mb-auto">Bread's description here and should be that long</p>
+                <p class="card-text mt-2 mb-auto">
+                  <%= bread.description != "" ? bread.description : "Bread's description here and should be that long" %>
+                </p>
                 <p> <strong>price</strong>: JPY <%= bread.price %></p>
                 <p> <strong>min/max:</strong> <%= "#{bread.min_quantity}/#{bread.max_quantity}"%> units</p>
                 <% unless current_user == @bakery.user %>
-                  <%= link_to "Order here", bakery_path(@bakery), class:'btn btn-outline-success'%>
+                  <%= link_to "Order here", new_bread_order_path(bread), class:'btn btn-outline-success'%>
                 <% end %>
               </div>
             </div>

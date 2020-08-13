@@ -5,7 +5,7 @@
       <h1 class="ml3">"Baking. Passion. Creating. Connection"</h1>
       <% if user_signed_in? %>
         <% if current_user.bakery.nil? %>
-          <%= link_to "Become a Baker", new_bakery, class: "btn btn-flat" %>
+          <%= link_to "Become a Baker", new_bakery_path, class: "btn btn-flat" %>
         <% else %>
           <%= link_to "Go to your Bakery", bakery_path(current_user.bakery), class: "btn btn-flat" %>
         <% end %>
