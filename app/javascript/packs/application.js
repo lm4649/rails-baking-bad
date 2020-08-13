@@ -28,6 +28,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 import { initMovingLetters } from '../plugins/init_movingletters3';
 import { InitOrderPrice } from '../plugins/init_order_price';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -35,4 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   InitOrderPrice();
   initMapbox();
   initMovingLetters();
-});
+  initAutocomplete();
+})
