@@ -27,9 +27,11 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initMovingLetters } from '../plugins/init_movingletters3';
+import { InitOrderPrice } from '../plugins/init_order_price';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMovingLetters();
+  InitOrderPrice();
 });

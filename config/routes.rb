@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get '/dashboard', to:'users#dashboard'
   resources :bakeries, only: [:index, :show, :new, :create ]
   resources :breads, only: [:new, :create] do
-    resources :orders, only: [:create]
+    resources :orders, only: [:new, :create]
   end
   resources :orders, only: [:update]
-
 end

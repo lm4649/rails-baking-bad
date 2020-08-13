@@ -1,15 +1,11 @@
-<div class="home-container">
-  <div class="banner d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.freepik.com/free-photo/midsection-male-baker-s-hand-dusting-flour-wooden-desk-with-baked-bread_23-2148189062.jpg);">
-    <div class="container d-flex flex-column justify-content-around align-items-center">
-      <%= image_tag "white_logo_transparent_background.png", alt: "alttext", width: 300%>
-      <div class="text-center">
-        <h1 class="ml3">"Baking. Passion. Creating. Connection"</h1>
-        <% if user_signed_in? %>
-          <% if current_user.bakery.nil? %>
-            <%= link_to "Become a Baker", new_bakery_path, class: "btn btn-flat" %>
-          <% else %>
-            <%= link_to "Go to your Bakery", bakery_path(current_user.bakery), class: "btn btn-flat" %>
-          <% end %>
+<div class="banner d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.freepik.com/free-photo/midsection-male-baker-s-hand-dusting-flour-wooden-desk-with-baked-bread_23-2148189062.jpg);">
+  <div class="container d-flex flex-column justify-content-around align-items-center">
+    <%= image_tag "white_logo_transparent_background.png", alt: "alttext", width: 300%>
+    <div class="text-center">
+      <h1 class="ml3">"Baking. Passion. Creating. Connection"</h1>
+      <% if user_signed_in? %>
+        <% if current_user.bakery.nil? %>
+          <%= link_to "Become a Baker", new_bakery_path, class: "btn btn-flat" %>
         <% else %>
           <%= link_to "Check bakeries", bakeries_path, class: "btn btn-flat"  %>
         <%end %>
