@@ -24,7 +24,11 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import { initMapbox } from '../plugins/init_mapbox';
 
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 // Internal imports, e.g:
 import { initMovingLetters } from '../plugins/init_movingletters3';
 import { InitOrderPrice } from '../plugins/init_order_price';

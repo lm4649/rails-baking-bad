@@ -6,4 +6,6 @@ class Bakery < ApplicationRecord
   validates :phone_number, presence: true, format: { with: /[^A-Za-z]{11,}/ }
   validates :description, presence: true, length: { minimum: 25 }
   has_one_attached :photo
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

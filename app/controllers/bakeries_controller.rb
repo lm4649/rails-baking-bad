@@ -2,6 +2,15 @@ class BakeriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @bakeries = policy_scope(Bakery).order(:name)
+    @bakeries = Bakery.geocoded # returns bakery with coordinates
+
+    @markers = @bakeries.map do |bakery|
+      {
+        lat: bakery.latitude,
+        lng: bakery.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bakery: bakery })
+      }
+    end
   end
 
   def show
