@@ -4,14 +4,14 @@
   <% else %>
     <h1 class = "text-center m-3">Dashboards</h1>
     <!-- dropdown -->
-    <%= render 'shared/dashboard_selector' %>
+    <%= render 'dashboard_selector' %>
   <% end %>
   <!-- Baker Dashboard -->
   <% if @baker_orders.any? %>
-    <%= render 'shared/dashboard_baker' %>
+    <%= render 'dashboard_baker' %>
   <% end %>
   <!-- Customer Dashboard -->
   <% if @customer_orders.any? %>
-    <%= render 'shared/dashboard_customer' %>
+    <%= render 'dashboard_customer' %>
   <% end %>
 </div>
