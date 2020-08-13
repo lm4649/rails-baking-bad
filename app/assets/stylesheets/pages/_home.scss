@@ -1,4 +1,8 @@
 // Specific CSS for your home-page
+.home-container {
+  background-color: white;
+}
+
 .banner {
   background-size: cover;
   background-position: center;
@@ -12,7 +16,7 @@
   font-size: 32px;
   font-weight: bold;
   text-align: center;
-  font-family: 'EB Garamond';
+  font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -28,23 +32,25 @@
   border-radius: 4px;
   background:   #ff0080;
   transition: background 0.3s ease;
-  margin-top: 16px;
+  margin-top: 42px;
 }
 
 .btn-flat:hover {
-  background: #ff00ff;
+  background: #f09ae9;
   color: white;
 }
 
 h2 {
   margin-top: 46px;
+  margin-bottom: 12px;
   text-align: center;
-  font-family: 'EB Garamond';
+  font-family:'Open Sans', sans-serif;
 }
-p {
+.description p {
   margin-top: 24px;
   margin-bottom: 42px;
-  font-family: 'EB Garamond'
+  font-family:'Open Sans', sans-serif;
+  background-image: url('https://image.freepik.com/free-photo/paperboard-yellow-texture_95678-83.jpg');
 }
 
 .card-container {
@@ -53,19 +59,35 @@ p {
 }
 
 .main-bread img {
-  width:600px;
-  margin-top: 36px;
-  margin-bottom: 16px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .user-description {
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  background-image: url('https://image.freepik.com/free-photo/paperboard-yellow-texture_95678-83.jpg');
 }
 
 .bread-gallery img {
-  width: 200px;
+  width: 50%;
   height: 200px;
-  padding-right: 12px;
+  object-fit: cover;
 
+}
+
+.bread-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bg-color-cream {
+  background-color: #F6F3E3;
+}
+
+body {
+  font-family:'Open Sans', sans-serif;
+  font-size: 18px;
 }

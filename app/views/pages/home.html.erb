@@ -1,40 +1,45 @@
-<div class="banner d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.freepik.com/free-photo/midsection-male-baker-s-hand-dusting-flour-wooden-desk-with-baked-bread_23-2148189062.jpg);">
-  <div class="container d-flex flex-column justify-content-around align-items-center">
-    <%= image_tag "white_logo_transparent_background.png", alt: "alttext", width: 300%>
-    <div class="text-center">
-      <h1 class="ml3">"Baking. Passion. Creating. Connection"</h1>
-      <% if user_signed_in? %>
-        <% if current_user.bakery.nil? %>
-          <%= link_to "Become a Baker", new_bakery, class: "btn btn-flat" %>
+<div class="home-container">
+  <div class="banner d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://image.freepik.com/free-photo/midsection-male-baker-s-hand-dusting-flour-wooden-desk-with-baked-bread_23-2148189062.jpg);">
+    <div class="container d-flex flex-column justify-content-around align-items-center">
+      <%= image_tag "white_logo_transparent_background.png", alt: "alttext", width: 300%>
+      <div class="text-center">
+        <h1 class="ml3">"Baking. Passion. Creating. Connection"</h1>
+        <% if user_signed_in? %>
+          <% if current_user.bakery.nil? %>
+            <%= link_to "Become a Baker", new_bakery, class: "btn btn-flat" %>
+          <% else %>
+            <%= link_to "Go to your Bakery", bakery_path(current_user.bakery), class: "btn btn-flat" %>
+          <% end %>
         <% else %>
-          <%= link_to "Go to your Bakery", bakery_path(current_user.bakery), class: "btn btn-flat" %>
-        <% end %>
-      <% else %>
-        <%= link_to "Check bakeries", bakeries_path, class: "btn btn-flat"  %>
-      <%end %>
+          <%= link_to "Check bakeries", bakeries_path, class: "btn btn-flat"  %>
+        <%end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <h2>What is Baking Bad?</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim cumque reprehenderit libero suscipit magnam totam dicta quae laboriosam! Ipsam quod sint sequi ullam eum at ad, minus, exercitationem accusamus incidunt.</p>
-</div>
-<div class="card-container d-flex">
-  <div>
-    <div class="user-description">
-      <h2>Sam's HomeBakery</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore dignissimos, id enim explicabo eaque ut ducimus quia, unde dolor, cupiditate doloribus. Ut harum accusantium sapiente, autem corporis omnis, fugiat iusto.</p>
-    </div>
-    <div class="bread-gallery">
-      <img src="https://i.pinimg.com/originals/1e/4e/73/1e4e7317cb081bc77e81081268eab8c8.jpg" alt="bread1">
-      <img src="https://media.istockphoto.com/photos/tearing-a-bread-loaf-photography-recipe-idea-picture-id1014838092?k=6&m=1014838092&s=612x612&w=0&h=9sGxCWtRkhLNpA1PvBVH97mep0clODzAJjr4YUMd7s0=" alt="bread2">
-      <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/305-ake1024-ae_1.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=a88759fff5f3941f1cba8ff5f8453f2b" alt="bread3">
-    </div>
+  <div class="container">
+    <h2>What is Baking Bad?</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim cumque reprehenderit libero suscipit magnam totam dicta quae laboriosam! Ipsam quod sint sequi ullam eum at ad, minus, exercitationem accusamus incidunt.</p>
   </div>
-  <div class="main-bread">
-    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="bread">
-    <div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima labore tenetur sint distinctio vero? Aliquam sequi omnis nam, perspiciatis vel nemo architecto! Aperiam laudantium officia esse eaque, distinctio quasi non?</p>
+  <div class="container pb-5">
+    <div class="row">
+      <div class="col-md-6 d-flex flex-column justify-content-center bg-color-cream">
+        <h2>Sam's HomeBakery</h2>
+        <p class="description-p">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore dignissimos, id enim explicabo eaque ut ducimus quia, unde dolor, cupiditate doloribus. Ut harum accusantium sapiente, autem corporis omnis, fugiat iusto.</p>
+      </div>
+      <div class="col-md-6 main-bread p-0">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" height='400px' alt="bread">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 bread-gallery p-0">
+        <img src="https://i.pinimg.com/originals/1e/4e/73/1e4e7317cb081bc77e81081268eab8c8.jpg" alt="bread1">
+        <img src="https://media.istockphoto.com/photos/tearing-a-bread-loaf-photography-recipe-idea-picture-id1014838092?k=6&m=1014838092&s=612x612&w=0&h=9sGxCWtRkhLNpA1PvBVH97mep0clODzAJjr4YUMd7s0=" alt="bread2">
+        <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/305-ake1024-ae_1.jpg?bg=transparent&con=3&cs=srgb&dpr=1&fm=jpg&ixlib=php-3.1.0&q=80&usm=15&vib=3&w=1300&s=a88759fff5f3941f1cba8ff5f8453f2b" alt="bread3">
+        <img src="https://i.pinimg.com/originals/1e/4e/73/1e4e7317cb081bc77e81081268eab8c8.jpg" alt="bread1">
+      </div>
+      <div class="col-md-6 d-flex flex-column justify-content-center bg-color-cream">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima labore tenetur sint distinctio vero? Aliquam sequi omnis nam, perspiciatis vel nemo architecto! Aperiam laudantium officia esse eaque, distinctio quasi non?</p>
+      </div>
     </div>
   </div>
 </div>
