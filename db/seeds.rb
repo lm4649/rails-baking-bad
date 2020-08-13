@@ -7,37 +7,45 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
-
-addresses = [
-  '1 Chome-1-5 Meguro',
-  '3 Chome-9-1 Meguro',
-  '4 Chome-3-14 Kamiosaki',
-  'Meguro, 3 Chome−4−8',
-  '1 Chome-7-8 Shimomeguro',
-  '2 Chome-13-27 Meguro',
-  '3 Chome-10-13 Meguro',
-  '2 Chome-2-11 Shimomeguro',
-  'Shimomeguro, 5 Chome−18−21',
-  '1 Chome-8-1 Shimomeguro',
-  '1 Chome-5-19 Shimomeguro',
-  '2 Chome-17-2 Kamiosaki',
-  'Kamiosaki, 2 Chome−16−9',
-  'Kamiosaki, 2 Chome−１６−9',
-  '1 Chome-3-17 Meguro',
-  '1 Chome-7-6 Nakacho',
-  '1 Chome-3-1 Shimomeguro',
-  '4 Chome-2-1 Kamiosaki',
-  '3 Chome-7-32-103 Shimomeguro',
-  '2 Chome-7-14 Nakameguro'
-]
-
-breads = [ 'anpan', 'bagel', 'baguette', 'beer bread', 'chapati', 'crumpet', 'english muffin', 'foccacia', 'pandesal', 'sourdough bread']
-prices = [100, 300, 500, 1000, 1500, 2000, 3000, 4000, 5000, 9000 ]
+require 'nokogiri'
+require 'open-uri'
 
 puts "destroy users and bakeries breads and orders"
 Bakery.destroy_all
+Bread.destroy_all
 User.destroy_all
 Order.destroy_all
+
+# bakery data
+addresses = [
+  '9-chōme-7-4 Akasaka',
+  '3-chōme-8-5 Azabujuban',
+  '3-chōme-15-5 Shirokanedai',
+  '1-chōme-8-14 Ebisu',
+  '1-chōme-13-1 Mita',
+  '5-chōme-24-1 Hiroo',
+  '5-chōme-1-1 Kamimeguro',
+  '3-chōme-14-3 Meguro',
+  '3-chōme-1-1 Nakanobu',
+  '1-chōme-7-6 Nakacho',
+
+]
+
+# breads
+breads = [ 'anpan', 'bagel', 'baguette', 'beer bread', 'chapati', 'crumpet', 'english muffin', 'foccacia', 'pandesal', 'sourdough bread']
+prices = [100, 300, 500, 1000, 1500, 2000, 3000, 4000, 5000, 9000 ]
+
+puts "fetching bread names"
+
+url = "https://www.bhf.org.uk/informationsupport/heart-matters-magazine/nutrition/cooking-skills/dough/a-to-z-of-breads"
+html_file = open(url).read
+html_doc = Nokogiri::HTML(html_file)
+
+html_doc.search('article > h2').each do |element|
+  breads << element.text.strip.downcase
+end
+
+breads.uniq!
 
 puts "creating users, bakeries and breads"
 
@@ -47,9 +55,9 @@ puts "creating users, bakeries and breads"
                          password: "bakingbad1234"
                          )
   bakery = Bakery.new(
-    name: Faker::Restaurant.unique.name,
+    name: Faker::Name.unique.name + "'s Bakery",
     # description: Faker::Restaurant.description,
-    description: Faker::Lorem.paragraph(sentence_count: 2),
+    description: Faker::Lorem.paragraph(sentence_count: 3),
     # address: Faker::Address.street_address,
     address: addresses.sample,
     phone_number: Faker::PhoneNumber.cell_phone
@@ -72,10 +80,23 @@ end
 puts "create customer orders"
 
 5.times do
-
-
+  # 1st user buy to last user
+  Order.create!(  user_id: User.last.id,
+                  bread_id: User.first.bakery.breads.sample.id,
+                  quantity: rand(10),
+                  pick_up: DateTime.new(2020,8,13,rand(13..17),0,0)+ rand(1..15),
+                  status: [0,1,2,3].sample
+                  )
+  # last user buy to first user
+  Order.create!(  user_id: User.first.id,
+                  bread_id: User.last.bakery.breads.sample.id,
+                  quantity: rand(10),
+                  pick_up: DateTime.new(2020,8,13,rand(13..17),0,0)+ rand(1..15),
+                  status: [0,1,2,3].sample
+                  )
 end
 
 puts "#{User.count} users created"
 puts "#{Bakery.count} bakeries created"
 puts "#{Bread.count} breads created"
+puts "#{Order.count} order created"
