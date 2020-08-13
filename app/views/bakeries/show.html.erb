@@ -19,7 +19,7 @@
   </div>
   <!-- in a grid a column for bakery's photos -->
   <div style="display: grid; grid-template-columns: 2fr 3fr; grid-gap: 16px">
-    <div style="display: flex; justify-content: left;" >
+    <div style="display: flex; justify-content: left; opacity: 0;" >
       <% if @bakery.photo.attached? %>
         <%= cl_image_tag @bakery.photo.key, height: 300, width: 400, crop: :fill %>
       <% else %>
