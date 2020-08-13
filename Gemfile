@@ -26,6 +26,7 @@ gem 'faker'
 
 # added gems - authentication Pundit
 gem 'pundit'
+gem 'geocoder'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

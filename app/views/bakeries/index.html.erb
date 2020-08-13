@@ -1,39 +1,40 @@
 <!-- filter bakery cards and map -->
-  <div class="wrapper-bakeries">
-    <ul>
-      <div class="btn-group m-3">
-        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Filter by
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">category 1</a>
-          <a class="dropdown-item" href="#">category 2</a>
-          <a class="dropdown-item" href="#">category 3</a>
-        </div>
+<div class="wrapper-bakeries">
+  <ul>
+    <div class="btn-group m-3">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter by
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">category 1</a>
+        <a class="dropdown-item" href="#">category 2</a>
+        <a class="dropdown-item" href="#">category 3</a>
       </div>
-      <h1>Yoyogi-Koen</h1>
-      <% @bakeries.each do |bakery| %>
-        <li>
-          <div class="card-bakery my-2 mr-3">
-            <%= image_tag "https://source.unsplash.com/featured/?{ bakery }", width: '286px', height: '190px', alt: "bakery", alt: "alttext" %>
-            <div class="card-bakery-infos">
-              <h2>
-                <%= link_to "#{bakery.name}", bakery_path(bakery) %>
-              </h2>
-              <p><%= bakery.description  %></p>
-            </div>
+    </div>
+    <h1>Yoyogi-Koen</h1>
+    <% @bakeries.each do |bakery| %>
+      <li>
+        <div class="card-bakery my-2 mr-3">
+          <%= image_tag "https://source.unsplash.com/featured/?{ bakery }", width: '286px', height: '190px', alt: "bakery", alt: "alttext" %>
+          <div class="card-bakery-infos">
+            <h2>
+              <%= link_to "#{bakery.name}", bakery_path(bakery) %>
+            </h2>
+            <p><%= bakery.description  %></p>
           </div>
-        </li>
-      <%end %>
-    </ul>
-    <%= image_tag "https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoibG00NjQ5IiwiYSI6ImNrY3pxZnprbzA1dTAycnBjdnp0dHlheDMifQ.89viQQ5o_rKWDXYFWmeKPw", alt: "alttext", id: 'map' %>
-  </div>
-
+        </div>
+      </li>
+    <%end %>
+  </ul>
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
 <!-- call to action -->
 <div class = "container my-5 d-flex align-items-center justify-content-around" style = "width: 60%; background-color: rgba(0,0,0,0.1); height: 170px;">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br> sed do eiusmod tempor incididunt ut labore</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+    sed do eiusmod tempor incididunt ut labore</p>
   <%= link_to 'Join Today', bakeries_path, class: 'btn btn-primary' %>
   <%= link_to 'Contact Us', bakeries_path, class: 'btn btn-outline-primary' %>
 </div>
-
-
