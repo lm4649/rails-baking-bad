@@ -33,13 +33,13 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background:   black;
+  background: #e79c2a;
   transition: background 0.3s ease;
   margin-top: 42px;
 }
 
 .btn-flat:hover {
-  background: #e79c2a;
+  background: black;
   color: white;
 }
 
@@ -97,4 +97,8 @@ body {
 
 .p-introduction {
   padding-bottom: 42px;
+}
+
+.content {
+  padding-bottom: 56px;
 }
