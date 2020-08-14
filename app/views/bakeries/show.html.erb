@@ -2,9 +2,9 @@
 <h1 class="text-center m-4"><%=@bakery.name %></h1>
 <!-- Bakery's card -->
 <div class="container">
-  <div class="bakery-card1 card flex-md-row mb-4 box-shadow h-md-250">
+  <div class="card-bakery-title card flex-md-row mb-4 box-shadow h-md-250">
     <% if @bakery.photo.attached? %>
-      <%= cl_image_tag @bakery.photo.key, height: 300, width: 400, crop: :fill, class: "bakery-card2" %>
+      <%= cl_image_tag @bakery.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>
       <%= image_tag "https://source.unsplash.com/featured/?{ bakery, bread }", alt: "bakery", class: "card-img-right flex-auto d-none d-md-block", style: "width: 400px; height: 250px; "  %>
     <% end %>
@@ -31,13 +31,13 @@
       <ul>
         <% @bakery.breads.each do |bread| %>
           <li style= "list-style: none;">
-            <div class="bakery-card3 card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-bakery-item card flex-md-row mb-4 box-shadow h-md-250">
               <% if bread.photos.attached? %>
-                <%= cl_image_tag bread.photos[0].key, height: 300, width: 400, crop: :fill, class: "bakery-card4" %>
+                <%= cl_image_tag bread.photos[0].key, height: 300, width: 400, crop: :fill %>
               <% else %>
                 <%= image_tag "https://source.unsplash.com/featured/?{ bakery, #{bread.name} }", alt: "bakery", class:"card-img-right flex-auto d-none d-md-block", style: "width: 300px; height: 250px; "  %>
               <% end %>
-              <div class="card-body d-flex flex-column align-items-start">
+              <div class="p-3 d-flex flex-column align-items-start">
                 <h4 class="mb-0"><%= bread.name.capitalize %></h4>
                 <p class="card-text mt-2 mb-auto">
                   <%= bread.description != "" ? bread.description : "Bread's description here and should be that long" %>
