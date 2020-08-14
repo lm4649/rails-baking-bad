@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <% if current_user.bakery %>
+        <% if current_user.bakery&.persisted? %>
           <li class="nav-item active">
             <%= link_to "My Bakery", bakery_path(current_user.bakery), class: "nav-link" %>
           </li>
