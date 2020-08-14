@@ -7,13 +7,13 @@
         class: "form-control mr-sm-2",
         placeholder: "Find a bakery"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-      <%= link_to "Bakeries", bakeries_path,class: "btn btn-success ml-1"  %>
+      <%= submit_tag "Search", class: "btn btn-secondary" %>
+      <%= link_to "Bakeries", bakeries_path,class: "btn btn-dark ml-1"  %>
     <% end %>
-    <h1 id="place"><%=  @results %></h1>
+    <h4 id="place"><%=  @results %></h4>
     <% @bakeries.each do |bakery| %>
       <li>
-        <div class="card-bakery my-2 mr-3">
+        <div class="card-list card-bakery my-2 mr-3">
           <%= image_tag "https://source.unsplash.com/featured/?{ bakery }", width: '286px', height: '190px', alt: "bakery", alt: "alttext" %>
           <div class="card-bakery-infos">
             <h2>
@@ -31,8 +31,8 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 <!-- call to action -->
-<div class = "container my-5 d-flex align-items-center justify-content-around" style = "width: 60%; background-color: rgba(0,0,0,0.1); height: 170px;">
-  <p>Become a baker or a customer. Connect your passion to the world!</p>
+<div class = "container my-5 d-flex align-items-center justify-content-around" style = "width: 60%; background-color: rgba(0,0,0,0.1); height: 170px; border-radius: 4px;">
+  <p>Become a baker or a customer. Share your passion! </p>
   <%= link_to 'Join Today', bakeries_path, class: 'btn btn-secondary' %>
   <%= link_to 'Contact Us', bakeries_path, class: 'btn btn-outline-dark' %>
 </div>
