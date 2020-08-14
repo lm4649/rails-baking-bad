@@ -12,7 +12,7 @@
       <h3 class="mb-0">Bakery Story</h3>
       <p class="card-text mb-auto"><%= @bakery.description %></p>
       <% if current_user == @bakery.user %>
-        <%= link_to "Add your Bread", new_bread_path, class:'btn btn-outline-success'%>
+        <%= link_to "Add your Bread", new_bread_path, class:'btn btn-outline-warning'%>
       <% end %>
     </div>
   </div>

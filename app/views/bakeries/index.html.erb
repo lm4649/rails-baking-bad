@@ -2,7 +2,7 @@
 <div class="wrapper-bakeries">
   <ul>
     <div class="btn-group m-3">
-      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Filter by
       </button>
       <div class="dropdown-menu">
@@ -11,7 +11,7 @@
         <a class="dropdown-item" href="#">category 3</a>
       </div>
     </div>
-    <h1>Yoyogi-Koen</h1>
+    <h1 id="place">Yoyogi-Koen</h1>
     <% @bakeries.each do |bakery| %>
       <li>
         <div class="card-bakery my-2 mr-3">
@@ -33,8 +33,7 @@
 </div>
 <!-- call to action -->
 <div class = "container my-5 d-flex align-items-center justify-content-around" style = "width: 60%; background-color: rgba(0,0,0,0.1); height: 170px;">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-    sed do eiusmod tempor incididunt ut labore</p>
-  <%= link_to 'Join Today', bakeries_path, class: 'btn btn-primary' %>
-  <%= link_to 'Contact Us', bakeries_path, class: 'btn btn-outline-primary' %>
+  <p>Become a baker or a customer. Connect your passion to the world!</p>
+  <%= link_to 'Join Today', bakeries_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Contact Us', bakeries_path, class: 'btn btn-outline-dark' %>
 </div>
