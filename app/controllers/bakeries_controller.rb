@@ -15,7 +15,7 @@ class BakeriesController < ApplicationController
       @results = "#{@bakeries.count} #{@bakeries.count > 1 ? 'results' : 'result'}"
     else
       @bakeries = policy_scope(Bakery.geocoded).order(:name)
-      @results = "your neighborhood baker(s)"
+      @results = "Your friendly neighborhood bakers"
     end
 
     @markers = @bakeries.map do |bakery|
