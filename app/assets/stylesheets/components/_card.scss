@@ -33,20 +33,22 @@
   text-align: center;
 }
 
-.bakery-card1 {
+.card-bakery-title {
   border-radius: 4px;
 }
 
-.bakery-card2 {
+.card-bakery-title img {
   border-radius: 4px 0px 0px 4px;
+  object-fit: cover;
 }
 
-.bakery-card3 {
+.card-bakery-item {
   border-radius: 4px;
 }
 
-.bakery-card4 {
-   border-radius: 4px 0px 0px 4px;
+.card-bakery-item img {
+  border-radius: 4px 0px 0px 4px;
+  object-fit: cover;
 }
 
 
