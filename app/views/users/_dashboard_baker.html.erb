@@ -43,8 +43,8 @@
     <!-- display the update button only if pick up date is in the future -->
     <% if order.pick_up_in_future? && !order.delivered? %>
       <div class="d-flex justify-content-around">
-        <%= link_to "accept", order_path(order, status: 2), method: 'PATCH', class: 'btn btn-success'  %>
-        <%= link_to "decline", order_path(order, status: 0), method: 'PATCH', class: 'btn btn-danger'  %>
+        <%= link_to "accept", order_path(order, status: 2), method: 'PATCH', class: 'btn btn-secondary'  %>
+        <%= link_to "decline", order_path(order, status: 0), method: 'PATCH', class: 'btn btn-warning'  %>
       </div>
     <% else %>
       <p>This order cannot be updated anymore</p>
