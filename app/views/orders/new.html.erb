@@ -4,7 +4,7 @@
   <%= simple_form_for [@bread, @order] do |f| %>
     <%= f.input :quantity, collection: @bread.min_quantity..@bread.max_quantity %>
     <%= f.input :pick_up, html5: true %>
-    <%= f.submit :Order, class: "btn btn-outline-success btn-block btn-lg" %>
+    <%= f.submit :Order, class: "btn btn-outline-warning btn-block btn-lg" %>
   <% end %>
   <h4 class="m-3 text-center">Total: JPY <span id="total" data-price = "<%=@bread.price%>"></span></h4>
   <%= link_to "Cancel" , bakery_path(@bread.bakery), class:'btn btn-outline-danger btn-ms'  %>
