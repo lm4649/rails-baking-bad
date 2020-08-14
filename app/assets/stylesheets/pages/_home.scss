@@ -2,6 +2,9 @@
 .home-container {
   background-color: white;
 }
+.container {
+  padding-top: 24px;
+}
 
 .banner {
   background-size: cover;
@@ -30,13 +33,13 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background:   #ff0080;
+  background: #e79c2a;
   transition: background 0.3s ease;
   margin-top: 42px;
 }
 
 .btn-flat:hover {
-  background: #f09ae9;
+  background: black;
   color: white;
 }
 
@@ -90,4 +93,20 @@ h2 {
 body {
   font-family:'Open Sans', sans-serif;
   font-size: 18px;
+}
+
+.p-introduction {
+  padding-bottom: 42px;
+}
+
+.content {
+  padding-bottom: 3px;
+}
+
+#place {
+  padding-right: 50px;
+}
+
+.mapboxgl-canvas {
+  padding-top: 40px;
 }

@@ -10,7 +10,7 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
       <%= link_to "Bakeries", bakeries_path,class: "btn btn-success ml-1"  %>
     <% end %>
-    <h1><%= @results %></h1>
+    <h1><%= id="place" @results %></h1>
     <% @bakeries.each do |bakery| %>
       <li>
         <div class="card-bakery my-2 mr-3">
@@ -32,8 +32,7 @@
 </div>
 <!-- call to action -->
 <div class = "container my-5 d-flex align-items-center justify-content-around" style = "width: 60%; background-color: rgba(0,0,0,0.1); height: 170px;">
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-    sed do eiusmod tempor incididunt ut labore</p>
-  <%= link_to 'Join Today', bakeries_path, class: 'btn btn-primary' %>
-  <%= link_to 'Contact Us', bakeries_path, class: 'btn btn-outline-primary' %>
+  <p>Become a baker or a customer. Connect your passion to the world!</p>
+  <%= link_to 'Join Today', bakeries_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Contact Us', bakeries_path, class: 'btn btn-outline-dark' %>
 </div>
