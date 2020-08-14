@@ -16,7 +16,7 @@
         <div class="card-list card-bakery my-2 mr-3">
           <%= image_tag "https://source.unsplash.com/featured/?{ bakery }", width: '286px', height: '190px', alt: "bakery", alt: "alttext" %>
           <div class="card-bakery-infos">
-            <h2>
+            <h2 class="bakery-title">
               <%= link_to "#{bakery.name}", bakery_path(bakery) %>
             </h2>
             <p><%= bakery.description  %></p>

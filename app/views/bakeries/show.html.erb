@@ -45,7 +45,7 @@
                 <p> <strong>price</strong>: JPY <%= bread.price %></p>
                 <p> <strong>min/max:</strong> <%= "#{bread.min_quantity}/#{bread.max_quantity}"%> units</p>
                 <% unless current_user == @bakery.user %>
-                  <%= link_to "Order here", new_bread_order_path(bread), class:'btn btn-outline-success'%>
+                  <%= link_to "Order here", new_bread_order_path(bread), class:'btn btn-outline-warning'%>
                 <% end %>
               </div>
             </div>
