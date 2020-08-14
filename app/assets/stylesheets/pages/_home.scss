@@ -100,5 +100,13 @@ body {
 }
 
 .content {
-  padding-bottom: 56px;
+  padding-bottom: 3px;
+}
+
+#place {
+  padding-right: 50px;
+}
+
+.mapboxgl-canvas {
+  padding-top: 40px;
 }
