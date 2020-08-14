@@ -13,6 +13,7 @@
     <!-- pick-up date -->
     <div class="col-3 border-right">
       <p><%=order.pick_up.strftime("%a  %m/%d/%Y at %I:%M%p") %></p>
+      <p>ref. 2020/<%= order.id %></p>
     </div>
     <!-- main info about the order (bakery, bread, quantity, price...) -->
     <div class="col-6 pr-2 d-flex justify-content-around align-items-center">
