@@ -1,6 +1,6 @@
 // Wrap every letter in a span
 const initMovingLetters = () => {
-  var textWrapper = document.querySelector('.ml3');
+  const textWrapper = document.querySelector('.ml3');
   if (textWrapper) {
     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
