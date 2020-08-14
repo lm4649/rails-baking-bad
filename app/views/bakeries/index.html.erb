@@ -21,9 +21,14 @@
           <% end %>
           <div class="card-bakery-infos">
             <h2 class="bakery-title">
+              <% if bakery == current_user.bakery %>
+                <span>⭐️</span>
+              <%end %>
               <%= link_to "#{bakery.name}", bakery_path(bakery) %>
             </h2>
-            <p><%= bakery.description  %></p>
+            <p>
+              <%= bakery.description  %>
+            </p>
           </div>
         </div>
       </li>
