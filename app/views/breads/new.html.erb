@@ -6,8 +6,8 @@
     <%= f.input :description, as: :text %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :price, label: "Price ¥", input_html: { min: '0', step: 'any' } %>
-    <%= f.input :min_quantity, collection: 1..98  %>
-    <%= f.input :max_quantity, collection: 1..99  %>
+    <%= f.input :min_quantity, collection: 1..98, input_html: { class: 'select2'}  %>
+    <%= f.input :max_quantity, collection: 1..99, input_html: { class: 'select2'}  %>
     <%= f.submit class: "btn btn-outline-warning btn-block btn-lg" %>
   <% end %>
 </div>

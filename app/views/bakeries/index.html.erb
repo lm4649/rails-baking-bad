@@ -10,7 +10,7 @@
       <%= submit_tag "Search", class: "btn btn-primary" %>
       <%= link_to "Bakeries", bakeries_path,class: "btn btn-success ml-1"  %>
     <% end %>
-    <h1 id="place"> <% @results %></h1>
+    <h1 id="place"><%=  @results %></h1>
     <% @bakeries.each do |bakery| %>
       <li>
         <div class="card-bakery my-2 mr-3">
