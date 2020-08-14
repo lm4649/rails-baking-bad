@@ -14,7 +14,7 @@ class Order < ApplicationRecord
     DateTime.now <= pick_up
   end
 
-  def delivered?
-    return status == 3
+  def done?
+    status != 1
   end
 end
