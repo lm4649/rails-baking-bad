@@ -1,4 +1,4 @@
-#BAKING BAD
+# BAKING BAD
 ## Find your local and unique baker
 
 A market place for hobbyist bakers and bread lovers.  
